@@ -1,3 +1,14 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: cornsilk;
+}
+
+h1 {
+    text-align: center;
+}
+
 .row {
     display: flex;
     /* justify-content: space-around; */
