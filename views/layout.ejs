@@ -9,21 +9,25 @@
 </head>
 
 <body>
-    <header>
-        <h1>My Store</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <%- body %>
-        <footer>
+    <div>
+        <div class="header">
+            <h1>My Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/users">Users</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div><%- body %></div>
+        <div class="footer">
             <p>&copy; 2024 My Store. All rights reserved.</p>
-        </footer>
+        </div>
+    </div>
+
 </body>
 
 </html>
