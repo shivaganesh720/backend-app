@@ -14,6 +14,7 @@ app.set("views", "views");
 app.set("layout", "layout")
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+// app.use(cors());
 
 app.use(
     session({
