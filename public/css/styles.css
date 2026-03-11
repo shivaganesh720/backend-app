@@ -67,12 +67,18 @@ h1 {
 }
 
 .productsbox {
-    text-align: left;
-    padding: 20px;
-    border-radius: 12px;
+    margin: 5px;
+    margin-bottom: 9px;
+    padding: 5px;
+    padding-left: 40px;
+    border: 1px solid gray;
     background: white;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 0px rgb(0, 0, 0);
+    text-align: left;
+
 }
+
 
 .box:hover {
     transform: translateY(-8px);

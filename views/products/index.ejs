@@ -12,14 +12,24 @@
     <a href="/products/add">Add Product</a>
     <ol>
         <% products.forEach(product=> { %>
-            <li>
-                <%= product.name %>-
-                    <%=product.desc %>-
-                        <%= product.price %>-
-                            <%= product.imageUrl %>-
-                                <a href="/products/<%= product._id %>/edit">Edit</a>-
-                                <a href="/products/<%= product._id %>/delete">Delete</a>
-            </li>
+            <div class="productsbox">
+                <ul>
+                    <li>
+                        Product Name: <%= product.name %>
+                    </li>
+                    <li>
+                        Description: <%=product.desc %>
+                    </li>
+                    <li>
+                        Price: $<%= product.price %>
+                    </li>
+                    <li>
+                        Image URL: <%= product.image %>
+                    </li>
+                    <a href="/products/<%= product._id %>/edit">Edit</a>
+                    <a href="/products/<%= product._id %>/delete">Delete</a>
+                </ul>
+            </div>
             <% }) %>
     </ol>
 </body>
