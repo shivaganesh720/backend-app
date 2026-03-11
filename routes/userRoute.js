@@ -1,20 +1,19 @@
-import express from "express";
 import {
-    getUsers,
-    addUser,
-    addUserForm,
-    deleteUser,
-    editUserForm,
-    saveUser
+    getusers,
+    adduserForm,
+    adduser,
+    deleteuser,
+    edituserForm,
+    saveuser,
 } from "../controllers/userController.js";
+import express from "express";
+const userRouter = express.Router();
 
-const router = express.Router();
+userRouter.get("/", getusers);
+userRouter.get("/add", adduserForm);
+userRouter.post("/add", adduser);
+userRouter.get("/:id/delete", deleteuser);
+userRouter.get("/:id/edit", edituserForm);
+userRouter.post("/:id/save", saveuser);
 
-router.get("/", getUsers);               // /users
-router.get("/add", addUserForm);         // display add form
-router.post("/add", addUser);            // submit add
-router.get("/edit/:id", editUserForm);   // display edit form
-router.post("/edit/:id", saveUser);      // submit edit
-router.get("/delete/:id", deleteUser);   // delete
-
-export default router; 
+export default userRouter;
