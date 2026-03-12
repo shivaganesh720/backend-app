@@ -1,18 +1,20 @@
-<HTML:5><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Order</title>
+    <title>Document</title>
 </head>
+
 <body>
-    <h2>Add Order</h2>
-    <form action="/orders" method="POST">
-        <label for="productId">Product ID:</label>
-        <input type="text" id="productId" name="productId" required>
-        <br>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required>
-        <br>
-        <button type="submit">Place Order</button>
+    <h2>Add Orders Form</h2>
+    <form action="/orders/add" method="POST">
+        <p><input type="text" name="product" placeholder="Product" /></p>
+        <p><input type="number" name="quantity" placeholder="Quantity" /></p>
+        <p><input type="number" name="price" placeholder="Price" /></p>
+        <p><button>Submit</button></p>
     </form>
 </body>
+
 </html>

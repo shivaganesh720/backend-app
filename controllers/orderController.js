@@ -1,43 +1,38 @@
-import OrderModel from "../models/orderModel";
+import orderModel from "../models/orderModel.js"
 
-function getOrders(req, res) {
-    const orders = OrderModel.find();
-    res.json(orders);
-    res.send("Orders retrieved successfully");
-}
+const getorder = async (req, res) => {
+    const orders = await orderModel.find();
+    res.render("orders/index", { orders });
+};
 
+const placeOrder = async (req, res) => {
+    const body = req.body;
+    await orderModel.create(body);
+    res.redirect("/orders");
+};
 
-function placeOrder(req, res) {
-    const { productId, quantity } = req.body;
-    const order = new OrderModel({ products: [{ productId, quantity }] });
-    order.save();
-    res.json(order);
-    res.send("Order placed successfully");
-}
+const addOrderForm = async (req, res) => {
+    res.render("orders/add");
+};
 
-function orderStatus(req, res) {
-    const { orderId } = req.params;
-    const order = OrderModel.findById(orderId);
-    if (!order) {
-        return res.status(404).send("Order not found");
-    }
-    const status = order.status;
-    res.json({ status });
-    res.send("Order status retrieved successfully");
-}
+const deleteOrder = async (req, res) => {
+    const id = req.params.id;
+    await orderModel.findByIdAndDelete(id);
+    res.redirect("/orders");
+};
 
-function updateOrderStatus(req, res) {
-    const { orderId } = req.params;
-    const { status } = req.body;
-    const order = OrderModel.findById(orderId);
-    if (!order) {
-        return res.status(404).send("Order not found");
-    }
-    order.status = status;
-    order.save();
-    res.json(order);
-    res.send("Order status updated successfully");
-}
+const editOrderForm = async (req, res) => {
+    const id = req.params.id;
+    const order = await orderModel.findOne({ _id: id });
+    res.render("orders/edit", { order });
+};
+
+const saveOrder = async (req, res) => {
+    const id = req.params.id;
+    await orderModel.findByIdAndUpdate(id, req.body);
+    res.redirect("/orders")
+};
 
 
-export { getOrders, placeOrder, orderStatus, updateOrderStatus };  
+
+export { getorder, placeOrder, addOrderForm, deleteOrder, editOrderForm, saveOrder }
