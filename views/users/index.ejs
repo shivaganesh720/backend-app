@@ -10,18 +10,29 @@
 <body>
     <h2>Users Admin Page</h2>
     <a href="/users/add">Add User</a>
-    <ol>
+    <ul>
         <% users.forEach(user=> { %>
             <li>
-                <%= user.name %>-
-                    <%= user.email %>-
-                        <%= user.password %>-
-                            <%= user.role %>-
-                                <a href="/users/<%= user._id %>/edit">Edit</a>-
-                                <a href="/users/<%= user._id %>/delete">Delete</a>
+                <p>
+                    Name : <%= user.name %>
+                </p>
+                <p>
+                    Email : <%= user.email %>
+                </p>
+                <p>
+                    Password : <%= user.password %>
+                </p>
+                <p>
+                    Role : <%= user.role %>
+                </p>
+
+                <a href="/users/<%= user._id %>/edit">Edit</a>
+                <a href="/users/<%= user._id %>/delete">Delete</a>
+                <br />
+                <hr />
             </li>
             <% }) %>
-    </ol>
+    </ul>
 </body>
 
 </html>
